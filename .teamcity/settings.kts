@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.xcode
+import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -27,6 +28,8 @@ version = "2025.03"
 
 project {
 
+    vcsRoot(HttpsGithubComPipelinestestaccSimplePublicRepository)
+
     buildType(BuildXCodeApp)
 }
 
@@ -35,6 +38,7 @@ object BuildXCodeApp : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
+        root(HttpsGithubComPipelinestestaccSimplePublicRepository)
     }
 
     steps {
@@ -48,4 +52,10 @@ object BuildXCodeApp : BuildType({
             }
         }
     }
+})
+
+object HttpsGithubComPipelinestestaccSimplePublicRepository : GitVcsRoot({
+    name = "https://github.com/pipelinestestacc/simple-public-repository"
+    url = "https://github.com/pipelinestestacc/simple-public-repository"
+    branch = "refs/heads/main"
 })
