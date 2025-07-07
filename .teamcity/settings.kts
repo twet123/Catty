@@ -28,7 +28,7 @@ version = "2025.03"
 
 project {
 
-    vcsRoot(HttpsGithubComPipelinestestaccSimplePublicRepository)
+    vcsRoot(HttpsGithubComTwet123Catty)
 
     buildType(BuildXCodeApp)
 }
@@ -37,8 +37,7 @@ object BuildXCodeApp : BuildType({
     name = "Build XCode App"
 
     vcs {
-        root(DslContext.settingsRoot)
-        root(HttpsGithubComPipelinestestaccSimplePublicRepository)
+        root(HttpsGithubComTwet123Catty)
     }
 
     steps {
@@ -54,8 +53,8 @@ object BuildXCodeApp : BuildType({
     }
 })
 
-object HttpsGithubComPipelinestestaccSimplePublicRepository : GitVcsRoot({
-    name = "https://github.com/pipelinestestacc/simple-public-repository"
-    url = "https://github.com/pipelinestestacc/simple-public-repository"
-    branch = "refs/heads/main"
+object HttpsGithubComTwet123Catty : GitVcsRoot({
+    name = "https://github.com/twet123/Catty"
+    url = "https://github.com/twet123/Catty.git"
+    branch = "refs/heads/develop"
 })
